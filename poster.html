@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Poster Design</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(45deg, #1e1e1e, #333333);
+      color: white;
+    }
+
+    .container {
+      margin-top: 100px;
+      display: flex;
+      padding: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .left {
+      flex: 1;
+      text-align: center;
+      margin-right: 50px;
+    }
+
+    .left h1 {
+      font-size: 7em;
+      line-height: 1.2;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 72px;
+    }
+
+    .yellow {
+      color: #f3cc25;
+    }
+
+    .tools {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      animation: toolsAnimation 1s ease-in-out;
+      justify-content: center;
+    }
+
+    .tools img {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tools img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    .label {
+      margin-top: 10px;
+      color: #ffffff;
+      font-size: 1.2em;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .right {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+      max-width: 1200px; /* Limit width for larger screens */
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 150px; /* Fixed card width */
+      padding: 20px;
+      border: 2px solid #afafac;
+      border-radius: 12px;
+      background-color: #444;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: cardAnimation 0.5s ease-out;
+    }
+
+    .item:hover {
+  transform: scale(1.1);
+  background-color: #555;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25; /* Glow effect */
+  border: 2px solid #f3cc25; /* Highlight border */
+  animation: sparkleEffect 1s infinite alternate; /* Sparkle effect animation */
+}
+
+@keyframes sparkleEffect {
+  0% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25;
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 25px #f3cc25, 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25;
+  }
+}
+
+.back-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    padding: 14px 28px;
+    background-color: rgb(0, 110, 255);
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    animation: jump 1.2s infinite;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .back-btn:hover {
+    background-color: #07517c;
+    color: white;
+  }
+
+  @keyframes jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .back-btn {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+    .item img {
+      width: 150px;
+      height: 150px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .item p {
+      margin-top: 8px;
+      font-size: 1.1em;
+      color: #f3cc25;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .popup:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Keyframe Animations */
+    @keyframes toolsAnimation {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cardAnimation {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button Styling */
+    .button {
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #d4a700;
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .left h1 {
+        font-size: 5em;
+      }
+
+      .script {
+        font-size: 60px;
+      }
+
+      .right {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .item p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .left h1 {
+        font-size: 4em;
+      }
+
+      .script {
+        font-size: 50px;
+      }
+
+      .right {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .label {
+        font-size: 1em;
+      }
+
+      .item p {
+        font-size: 0.95em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .right {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+      }
+
+      .left h1 {
+        font-size: 3.2em;
+      }
+
+      .script {
+        font-size: 42px;
+      }
+
+      .item p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <h1><span class="script">Poster</span> <br><span class="yellow">Design</span></h1>
+    <div class="tools">
+      <img src="files/fre.png" alt="Canva">
+      <img src="files/canva.png" alt="Figma">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Tool 3">
+    </div>
+    <p class="label">Design Tool</p>
+    <button class="button">Inventive imagination.</button>
+  </div>
+
+  <div class="right">
+    <div class="item"><a href="#img1"><img src="files/gym poster.png" alt=""></a><p>Gym Poster</p></div>
+    <div class="item"><a href="#img2"><img src="files/fashion.png" alt=""></a><p>Fashion Poster</p></div>
+    <div class="item"><a href="#img3"><img src="files/admin.png" alt=""></a><p>Admission Poster</p></div>
+    <div class="item"><a href="#img4"><img src="files/admin1.png" alt=""></a><p>Admission Poster</p></div>
+    <div class="item"><a href="#img5"><img src="files/brochure.png" alt=""></a><p>Brochure Poster</p></div>
+    <div class="item"><a href="#img6"><img src="files/club.png" alt=""></a><p>Club Poster</p></div>
+    <div class="item"><a href="#img7"><img src="files/choco.png" alt=""></a><p>Homemade-Choco Poster</p></div>
+    <div class="item"><a href="#img8"><img src="files/hiring.png" alt=""></a><p>Hiring Poster</p></div>
+    <div class="item"><a href="#img9"><img src="files/b-card.png" alt=""></a><p>Business Card</p></div>
+    <div class="item"><a href="#img10"><img src="files/thumb.png" alt=""></a><p>Thumbnail</p></div>
+  </div>
+</div>
+
+<!-- Popups -->
+<div id="img1" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/gym poster.png" alt=""></div>
+<div id="img2" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/fashion.png" alt=""></div>
+<div id="img3" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/admin.png" alt=""></div>
+<div id="img4" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/admin1.png" alt=""></div>
+<div id="img5" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/brochure.png" alt=""></div>
+<div id="img6" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/club.png" alt=""></div>
+<div id="img7" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/choco.png" alt=""></div>
+<div id="img8" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/hiring.png" alt=""></div>
+<div id="img9" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/b-card.png" alt=""></div>
+<div id="img10" class="popup"><a href="#" class="close-btn">&times;</a><img src="files/thumb.png" alt=""></div>
+<a href="index.html" class="back-btn">Go Back</a>
+</body>
+</html>

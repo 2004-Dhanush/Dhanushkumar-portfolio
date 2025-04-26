@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Freelancing Workshop</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #f3f4f6;
+      padding-bottom: 70px; /* Space for the fixed back button */
+    }
+
+    .full-width-img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .section {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      align-items: center;
+    }
+
+    .section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .left, .right {
+      flex: 1 1 48%;
+    }
+
+    .workshop-img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.05);
+    }
+
+    .date {
+      color: #9ca3af;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .title, .key-title {
+      color: #facc15;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #e5e7eb;
+    }
+
+    .certificate-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      border: 2px solid #facc15;
+      border-radius: 40px;
+      color: #facc15;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+
+    .certificate-btn:hover {
+      background-color: #facc15;
+      color: #1f2937;
+    }
+
+    .bottom-img {
+      margin-top: 60px;
+    }
+
+    .bottom-img img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Jump Animation */
+    @keyframes jump {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Fixed Back Button */
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right:50px;
+      padding: 14px 28px;
+      background-color: rgb(0, 110, 255);
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      z-index: 1000;
+      animation: jump 1.2s infinite;
+    }
+
+    .back-btn:hover {
+      background-color: #07517c;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        flex: 1 1 100%;
+      }
+
+      .full-width-img, .bottom-img img {
+        height: auto;
+      }
+
+      .title, .key-title {
+        font-size: 28px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .certificate-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+
+      .back-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Freelancing Section -->
+    <div class="section">
+      <div class="left">
+        <p class="date">March, 2025</p>
+        <h2 class="title">Freelancing</h2>
+        <p class="description">
+          I conducted a workshop titled <strong>"Sketch to Reality"</strong> at Surya Engineering College, Erode, where I trained over 100 students on the fundamentals of UI/UX design using Figma. The workshop focused on guiding students through the complete design process, from initial sketching to creating fully interactive digital prototypes.
+        </p>
+        <a href="files/apprication.pdf" class="certificate-btn">View Certificate</a>
+      </div>
+      <div class="right">
+        <img src="files/4.jpg" alt="Students Learning" class="workshop-img" />
+      </div>
+    </div>
+
+    <!-- Key Topics Section -->
+    <div class="section reverse">
+      <div class="left">
+        <h2 class="key-title">Key Topics</h2>
+        <p class="description">
+          UI/UX design principles, user-centric design, wireframing, prototyping, and real-time collaboration using Figma. Students engaged in hands-on activities, worked in teams, and presented their final designs. They gained practical experience and confidence in their design skills. The workshop received highly positive feedback for being interactive, informative, and inspiring.
+        </p>
+      </div>
+      <div class="right">
+        <img src="files/2.jpg" alt="UI/UX Workshop Session" class="workshop-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Image -->
+  <div class="bottom-img">
+    <img src="files/3.jpg" alt="Speaker and Audience" />
+  </div>
+
+  <!-- Fixed Back Button -->
+  <a href="index.html" class="back-btn">Go Back</a>
+
+</body>
+</html>

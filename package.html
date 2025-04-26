@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Package Recreation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #202020;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 80px 60px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .left {
+      margin-left: 150px;
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+
+    .left h1 {
+      font-size: 56px;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 70px;
+      display: block;
+      color: #f3cc25;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .tools {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .tools img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background-color: #ffffff22;
+      padding: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .tools img:hover {
+      transform: scale(1.1);
+    }
+
+    .button {
+      margin-top: 40px;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #f3cc25;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #ffd700;
+      transform: translateY(-3px);
+    }
+
+    .right {
+      flex: 1.2;
+      min-width: 300px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-right: 50px;
+    }
+
+    .item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 15px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: scale(1.1);
+      background-color: #555;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25;
+      border: 2px solid #f3cc25;
+      animation: sparkleEffect 1s infinite alternate;
+    }
+
+    @keyframes sparkleEffect {
+      0% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25;
+      }
+      50% {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 25px #f3cc25, 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      100% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px #f3cc25;
+      }
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .item p {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #f3cc25;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .popup:target {
+      display: flex;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 50px;
+      padding: 14px 28px;
+      background-color: rgb(0, 110, 255);
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      animation: jump 1.2s infinite;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background-color: #07517c;
+      color: white;
+    }
+
+    @keyframes jump {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      .left {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .left h1 {
+        font-size: 42px;
+      }
+
+      .script {
+        font-size: 50px;
+      }
+
+      .right {
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin: 30px 0 0 0;
+      }
+
+      .tools {
+        justify-content: center;
+      }
+
+      .button {
+        width: 90%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .left h1 {
+        font-size: 36px;
+      }
+
+      .script {
+        font-size: 42px;
+      }
+
+      .item p {
+        font-size: 14px;
+      }
+
+      .tools img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .button {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+
+      .back-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <span class="script">Package Recreation</span>
+      <h1>Design Collection</h1>
+      <div class="tools">
+        <img src="files/fre.png" alt="Fre">
+        <img src="files/canva.png" alt="Canva">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma">
+      </div>
+      <p class="label">Tools Used</p>
+      <button class="button">Product Presentation
+      </button>
+    </div>
+
+    <div class="right">
+      <div class="item">
+        <a href="#popup1">
+          <img src="files/50 50.png" alt="50 50 Poster" />
+        </a>
+        <p>50 50 <br> (Package Recreation)</p>
+      </div>
+      <div class="item">
+        <a href="#popup2">
+          <img src="files/marie gold.png" alt="Marie Gold Poster" />
+        </a>
+        <p>Marie Gold <br> (Package Recreation)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popups -->
+  <div id="popup1" class="popup">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="files/50 50.png" alt="50 50 Poster" />
+  </div>
+
+  <div id="popup2" class="popup">
+    <a href="#" class="close-btn">&times;</a>
+    <img src="files/marie gold.png" alt="Marie Gold Poster" />
+  </div>
+
+  <a href="index.html" class="back-btn">Go Back</a>
+</body>
+</html>

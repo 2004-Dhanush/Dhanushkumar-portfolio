@@ -111,6 +111,31 @@ body{
   cursor: pointer;
   display: none;
 }
+/* Show menu when 'show' class is added via JS */
+.navbar.show {
+  display: flex;
+  flex-direction: column;
+  background: #202020;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    width: 180px;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+}
 
 
 /*---------------------------HomePage--------------------------*/

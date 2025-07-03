@@ -22,10 +22,13 @@ body{
   font-size:16px;
   line-height:24px; 
   background-color:#202020;
+   overflow-x: hidden;
 }
 .container{
-  width: 1170px;
-  margin:auto;
+ width: 100%;
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 15px;
 }
 
 

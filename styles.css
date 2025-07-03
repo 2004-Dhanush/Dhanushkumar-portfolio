@@ -108,17 +108,6 @@ body{
   cursor: pointer;
   display: none;
 }
-.navbar.show {
-  display: flex;
-  flex-direction: column;
-  background-color: #202020;
-  padding: 10px 0;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100%;
-  z-index: 999;
-}
 
 
 /*---------------------------HomePage--------------------------*/
@@ -513,9 +502,13 @@ body{
 
 /* Mobile Layout */
 @media only screen and (max-width:767px){
-  .container{
-    width: 350px;
-  }
+  .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: auto;
+}
+
 
   .header .menu_icon {
     display: block;
@@ -793,10 +786,15 @@ body{
       transform: scale(1.2);
       color: #fed700;
     }
+@media (min-width: 768px) {
+  .contact-image {
+    margin-left: 60px;
+  }
+}
 
     .contact-image {
       flex: 1;
-      margin-left: 500px;
+     margin-left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -858,4 +856,3 @@ body{
         justify-content: center;
       }
     }
-    /* ------------------- Responsive Design ------------------- */

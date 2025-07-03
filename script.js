@@ -101,3 +101,24 @@ function updateActiveSection() {
     }
   });
 }
+const menuIcon = document.querySelector('.menu_icon');
+const navbar = document.querySelector('.navbar');
+
+menuIcon.addEventListener('click', () => {
+  navbar.classList.toggle('show');
+});
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  const scrollY = window.scrollY;
+  sections.forEach((section) => {
+    const top = section.offsetTop - 100;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const navLink = document.querySelector(`.navbar li a[href="#${id}"]`);
+
+    if (scrollY >= top && scrollY < top + height) {
+      document.querySelectorAll('.navbar li a').forEach((a) => a.classList.remove('active'));
+      if (navLink) navLink.classList.add('active');
+    }
+  });
+});

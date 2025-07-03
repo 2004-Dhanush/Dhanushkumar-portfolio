@@ -860,11 +860,46 @@ body{
     }
     /* ------------------- Responsive Design ------------------- */
 
+/* Base styles — Desktop first approach (≥ 1025px) */
+body {
+  font-size: 16px;
+}
 
-/* Mobile layout (phones) */
+/* Medium Devices (Tablets: 768px to 1024px) */
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+
+  .FirstElement {
+    padding: 2rem;
+    flex-direction: row;
+  }
+
+  .projects {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project {
+    flex-basis: 45%;
+    margin-bottom: 30px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .menu_icon {
+    display: block;
+  }
+}
+
+/* Small Devices (Phones: 480px to 767px) */
 @media only screen and (max-width: 767px) {
   .container {
     width: 95%;
+    padding: 0 1rem;
   }
 
   .header ul {
@@ -875,66 +910,47 @@ body{
     display: block;
   }
 
-  .FirstElement {
+  .FirstElement,
+  .about,
+  .education-content .row,
+  .projects,
+  .service-items,
+  .contact-container {
     flex-direction: column;
-    padding: 2rem 1rem;
   }
 
   .profile-photo {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
 
   .profile-text h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
-  .about {
-    flex-direction: column;
-  }
-
+  .about-content,
   .about-skills,
-  .about-content {
+  .project,
+  .service-item,
+  .contact-image {
     width: 100%;
-  }
-
-  .education-content .row {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .projects {
-    flex-direction: column;
-  }
-
-  .project {
-    flex-basis: 100%;
-    margin-bottom: 30px;
-  }
-
-  .service-items {
-    flex-direction: column;
-  }
-
-  .contact-container {
-    flex-direction: column;
     text-align: center;
   }
 
-  .contact-image {
-    margin: 0;
-    margin-top: 20px;
+  .project {
+    margin-bottom: 25px;
   }
 
   .contact-image img {
-    width: 70%;
+    width: 80%;
+    margin-top: 15px;
   }
 
   .footer {
     padding: 20px 0;
+    text-align: center;
   }
-}
-@media (max-width: 767px) {
+
   .navbar {
     display: none;
     flex-direction: column;
@@ -955,9 +971,22 @@ body{
     margin: 10px 0;
     text-align: center;
   }
+}
 
+/* Extra Small Devices (≤ 479px) */
+@media only screen and (max-width: 479px) {
+  .profile-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .button,
   .menu_icon {
-    display: block;
+    font-size: 0.9rem;
   }
 }
 

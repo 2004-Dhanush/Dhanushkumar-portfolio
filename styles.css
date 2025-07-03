@@ -502,7 +502,7 @@ body{
  /*------------------- Responsive Design on small screen -------------------*/
 
 /* Medium layout */
-@media only screen and (min-width:1000px) and (max-width:1200px){
+@media only screen and (min-width: 768px)and (max-width: 1024px){
   .container{
     width: 970px;
   }
@@ -521,7 +521,7 @@ body{
 
 
 /* tablet layout */
-@media only screen and (min-width:768px) and (max-width:999px){
+@media only screen and (min-width:768px) and (max-width: 1024px){
   .container{
     width: 750px;
   } 
@@ -529,7 +529,7 @@ body{
 
 
 /* Mobile Layout */
-@media only screen and (max-width:767px){
+@media only screen and (max-width:768px) and (max-width: 1024px){
   .container {
   width: 100%;
   max-width: 100%;
@@ -728,7 +728,7 @@ body{
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) and (max-width: 1024px) {
       .service-items {
         flex-direction: column;
         gap: 20px;
@@ -814,7 +814,7 @@ body{
       transform: scale(1.2);
       color: #fed700;
     }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px){
   .contact-image {
     margin-left: 60px;
   }
